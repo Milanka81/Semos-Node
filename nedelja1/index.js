@@ -1,3 +1,8 @@
+// 13. 05.
+
+console.log(
+  "------------------------DOMAĆI--- 13. 05. --------------------------"
+);
 const array = [
   { name: "John", age: 30, city: "New York" },
   { name: "Jane", age: 25, city: "Los Angeles" },
@@ -46,3 +51,44 @@ const isAdult = array.every((person) => person.age > 18);
 
 //some (istraziti sta vraca every i some)
 const isPensioner = array.some((person) => person.age > 65);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//  16. 05.
+
+console.log(
+  "------------------------DOMAĆI--- 16. 05. --------------------------"
+);
+
+//Zadatak broj 1:
+
+// Da se kreira funkcionalni izraz sa imenom c2f koji prima jedan parametar celsius i konvertuje tu vrednost u Farenhajt pomoću formule (celsius * 9/5) + 32.
+
+function c2f(celsius) {
+  return celsius * 1.8 + 32;
+}
+
+console.log(`Fahrenheit: ${c2f(30)}`);
+
+// Zadatak broj 2:
+
+// Da se kreira Fat Arrow Function sa imenom f2c koja prima jedan parametar fahrenheit i konvertuje tu vrednost u Celzijusove stepene pomoću formule (fahrenheit - 32) * 5/9.
+
+const f2c = (fahrenheit) => (fahrenheit - 32) / 1.8;
+
+console.log(`Celsius: ${f2c(86)}`);
+
+//Zadatak dodatni:
+
+// HIGH ORDER FUNCTIONS
+// ZA upis i ispis u odvojenom modulu koji se poziva preko koristeći destrukturiranje
+
+const { multiplication, division } = require("./calculator.js");
+
+const multiplicand = multiplication(3);
+const product = multiplicand(5);
+console.log(product);
+
+const dividend = division(18);
+const quotient = dividend(3);
+console.log(quotient);
