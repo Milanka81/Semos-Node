@@ -129,3 +129,36 @@ const serverConvertTemperature = http.createServer((req, res) => {
 serverConvertTemperature.listen(3002, "localhost", () => {
   console.log("listening for requests on port 3002");
 });
+
+// DRUGI NAČIN
+
+const serverPostTemperature = http.createServer((req, res) => {
+  if (req.method === "POST") {
+    let body = "";
+    req.on("data", (chunk) => {
+      body += chunk.toString();
+    });
+
+    req.on("end", () => {
+      if (req.url === "/csToFn") {
+        res.statusCode = 200;
+        res.setHeader("Content-Type", "text/plain");
+        res.end(`${body} celsius = ${body * 1.8 + 32} fahrenheit`);
+      }
+
+      if (req.url === "/fnToCs") {
+        res.statusCode = 200;
+        res.setHeader("Content-Type", "text/plain");
+        res.end(`${body} fahrenheit = ${(body - 32) / 1.8} celsius`);
+      }
+    });
+  } else {
+    res.statusCode = 400;
+    res.setHeader("Content-Type", "text/plain");
+    res.end("To see the result you should use POST method");
+  }
+});
+
+serverPostTemperature.listen(3003, "localhost", () => {
+  console.log("listening for requests on port 3003");
+});
