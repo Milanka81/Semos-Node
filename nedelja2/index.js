@@ -1,9 +1,9 @@
 const http = require("http");
 const url = require("url");
 
-console.log(
-  "------------------------DOMAĆI--- 20. 05. --------------------------"
-);
+// console.log(
+//   "------------------------DOMAĆI--- 20. 05. --------------------------"
+// );
 //Zadatak broj 1:
 // Dodavanje novih ruta na projekat koji smo radili na času (izlaz je bilo sta) - misli se na switch koji smo radili
 const serverSwitch = http.createServer((req, res) => {
@@ -162,3 +162,36 @@ const serverPostTemperature = http.createServer((req, res) => {
 serverPostTemperature.listen(3003, "localhost", () => {
   console.log("listening for requests on port 3003");
 });
+
+console.log(
+  "------------------------DOMAĆI--- 23. 05. --------------------------"
+);
+
+// Zadatak:1
+//Preneti funkcionalnosti iz prethodnog domaćeg zadatka u novi projekat sa novim ruterom
+const app = require("./app");
+const server = http.createServer(app);
+server.listen(8000, "localhost", () => {
+  console.log("listening for requests on port 8000");
+});
+
+// Zadatak 2:
+//- Napisati 10 različitih regularnih izraza - potraziti na web-u stranice za Regex
+
+const reg1 = /[a-z]/i;
+
+const reg2 = new RegExp(/[a-z]/, "i");
+
+const personInfoRegex = {
+  fullName: /^([A-Z][a-z]+\s?)+$/,
+  birthYear: /^\d{4}$/,
+  age: /^\d{1,2}$/,
+  gender: /^(male|female)$/,
+  country: /^([A-Z][a-z]\s?)+$/,
+  address: /^([A-Z][a-z]+\s?)+([0-9a-z/?])+$/,
+  city: /^([A-Z][a-z]\s?)+$/,
+  phoneNumber: /^[\d-\-\/]+$/,
+  username: /^[a-z\d]{8,15}$/i,
+  password: /^[^\s]{6,20}/,
+  email: /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/,
+};
