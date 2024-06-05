@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "name": "Pizza capricciosa",
+    "ingredients": "Mozzarella cheese, ham, mushrooms, artichoke, tomato"
+  },
+  {
+    "name": "Spaghetti bolognese",
+    "ingredients": "Ground meat , celery, carrot, onion, tomato paste"
+  },
+  {
+    "name": "Lasagna",
+    "ingredients": "Tomato sauce, ground beef, mozzarella, ricotta, cheese"
+  }
+]
