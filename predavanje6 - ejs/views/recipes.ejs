@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+  <body>
+    <div class="container">
+      <h1 class="text-center mt-3"><%= title %></h1>
+      <%- include("./partials/nav.ejs") %> <% if(recipes.length > 0){ %>
+      <ul>
+        <% recipes.forEach((recipe) => { %>
+        <li class="container list-unstyled border-bottom p-3">
+          <h6><%= recipe.name %></h6>
+          <p>Ingredients : <%= recipe.ingredients %></p>
+        </li>
+        <% } ) %>
+      </ul>
+      <% } else { %>
+      <p>Add the first recipe</p>
+      <% } %>
+    </div>
+    <%- include("./partials/footer.ejs") %> <%-
+    include("./partials/bootstrapScript.ejs") %>
+  </body>
+</html>

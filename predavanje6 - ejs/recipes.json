@@ -1,0 +1,17 @@
+[
+  {
+    "id": "c2e5e996-e3cc-4eda-8b4b-7de96b79dc90",
+    "name": "Pizza capricciosa",
+    "ingredients": "Mozzarella cheese, ham, mushrooms, artichoke, tomato"
+  },
+  {
+    "id": "c2e5e996-e3cc-4eda-8b4b-7de96b79dc91",
+    "name": "Spaghetti bolognese",
+    "ingredients": "Ground meat , celery, carrot, onion, tomato paste"
+  },
+  {
+    "id": "c2e5e996-e3cc-4eda-8b4b-7de96b79dc92",
+    "name": "Lasagna",
+    "ingredients": "Tomato sauce, ground beef, mozzarella, ricotta, cheese"
+  }
+]

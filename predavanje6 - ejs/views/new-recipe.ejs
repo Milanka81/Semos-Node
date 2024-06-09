@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+  <body>
+    <div class="container">
+      <h1 class="text-center mt-3"><%= title %></h1>
+      <%- include("./partials/nav.ejs") %>
+      <form class="align-items-end" action="/recipes" method="POST">
+        <label class="d-block p-2" for="name">Name:</label>
+        <input
+          class="w-25 p-3 mb-3"
+          type="text"
+          id="name"
+          name="name"
+          required
+        />
+        <br />
+        <label class="d-block p-2" for="ingredients">Ingredients:</label>
+        <input
+          class="w-25 p-3 mb-3"
+          type="text"
+          id="ingredients"
+          name="ingredients"
+          required
+        />
+        <br />
+        <button class="btn btn-primary mb-3 mt-3" type="submit">
+          Add Recipe
+        </button>
+      </form>
+    </div>
+    <%- include("./partials/footer.ejs") %> <%-
+    include("./partials/bootstrapScript.ejs") %>
+  </body>
+</html>
