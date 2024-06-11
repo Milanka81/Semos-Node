@@ -5,12 +5,18 @@ async function createRecipe(req, res) {
   try {
     const newRecipe = { id: uuidv4(), ...req.body };
     const recipes = await recipesModel.getAllRecipes();
+    if (recipes.some((recipe) => recipe.name === newRecipe.name)) {
+      res.render("new-recipe", {
+        title: "Add New Recipe",
+        error: "Recipe already exists",
+      });
+    } else {
+      recipes.push(newRecipe);
 
-    recipes.push(newRecipe);
+      await recipesModel.saveRecipe(recipes);
 
-    await recipesModel.saveRecipe(recipes);
-
-    res.status(201).json(newRecipe);
+      res.redirect("/");
+    }
   } catch (err) {
     res.status(500).json({ error: "Recipe isn't saved" });
   }

@@ -18,7 +18,7 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/new-recipe", (req, res) => {
-  res.render("new-recipe", { title: "Add New Recipe" });
+  res.render("new-recipe", { title: "Add New Recipe", error: null });
 });
 app.get("/about", (req, res) => {
   res.render("about", { title: "About Us" });

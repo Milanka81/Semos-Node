@@ -3,27 +3,47 @@
   <%- include("./partials/head.ejs") %>
   <body>
     <div class="container">
-      <h1 class="text-center mt-3"><%= title %></h1>
+      <h2 class="text-center mt-3"><%= title %></h2>
       <%- include("./partials/nav.ejs") %>
-      <form class="align-items-end" action="/recipes" method="POST">
-        <label class="d-block p-2" for="name">Name:</label>
+      <form
+        class="d-flex flex-column align-items-center"
+        action="/recipes"
+        method="POST"
+      >
+        <label class="d-block p-2" for="name">Recipe Name:</label>
         <input
-          class="w-25 p-3 mb-3"
+          class="w-25 p-3 mb-2 mt-2"
           type="text"
           id="name"
           name="name"
           required
         />
         <br />
+        <label class="d-block p-2" for="name">Total Time:</label>
+        <input
+          class="w-25 p-3 mb-2"
+          type="text"
+          id="total_time"
+          name="total_time"
+          required
+        />
+        <br />
+        <label class="d-block p-2" for="name">Serves:</label>
+        <input class="w-25 p-3 mb-2 type="text" id="serves" name="serves"
+        required />
+        <br />
         <label class="d-block p-2" for="ingredients">Ingredients:</label>
         <input
-          class="w-25 p-3 mb-3"
+          class="w-25 p-3 mb-2"
           type="text"
           id="ingredients"
           name="ingredients"
           required
         />
         <br />
+        <% if(error){ %>
+        <p style="color: red"><%= error %></p>
+        <% } %>
         <button class="btn btn-primary mb-3 mt-3" type="submit">
           Add Recipe
         </button>
