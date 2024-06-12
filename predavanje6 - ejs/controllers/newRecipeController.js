@@ -7,6 +7,7 @@ async function createRecipe(req, res) {
     const recipes = await recipesModel.getAllRecipes();
     if (recipes.some((recipe) => recipe.name === newRecipe.name)) {
       res.render("new-recipe", {
+        newRecipe,
         title: "Add New Recipe",
         error: "Recipe already exists",
       });

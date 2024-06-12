@@ -16,6 +16,7 @@
           type="text"
           id="name"
           name="name"
+          value="<%= newRecipe.name %>"
           required
         />
         <br />
@@ -25,12 +26,13 @@
           type="text"
           id="total_time"
           name="total_time"
+          value="<%= newRecipe.total_time %>"
           required
         />
         <br />
         <label class="d-block p-2" for="name">Serves:</label>
         <input class="w-25 p-3 mb-2 type="text" id="serves" name="serves"
-        required />
+        value="<%= newRecipe.serves %>" required />
         <br />
         <label class="d-block p-2" for="ingredients">Ingredients:</label>
         <input
@@ -38,6 +40,7 @@
           type="text"
           id="ingredients"
           name="ingredients"
+          value="<%= newRecipe.ingredients %>"
           required
         />
         <br />
