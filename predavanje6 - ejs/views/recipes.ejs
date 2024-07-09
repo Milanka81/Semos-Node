@@ -7,15 +7,28 @@
       <%- include("./partials/nav.ejs") %> <% if(recipes.length > 0){ %>
       <ul>
         <% recipes.forEach((recipe) => { %>
-        <li class="container list-unstyled border-bottom p-3">
-          <h5 class="mb-3"><%= recipe.name %></h5>
-          <p class="mb-1">
-            <strong>Total Time: </strong> <%= recipe.total_time %>
-          </p>
-          <p class="mb-1"><strong>Serves: </strong><%= recipe.serves %></p>
-          <p class="mb-1">
-            <strong>Ingredients: </strong> <%= recipe.ingredients %>
-          </p>
+        <li
+          class="d-flex list-unstyled border-bottom p-3 w-75 justify-content-between"
+        >
+          <div>
+            <h5 class="mb-3"><%= recipe.name %></h5>
+            <p class="mb-1">
+              <strong>Total Time: </strong> <%= recipe.total_time %>
+            </p>
+            <p class="mb-1"><strong>Serves: </strong><%= recipe.serves %></p>
+            <p class="mb-1">
+              <strong>Ingredients: </strong> <%= recipe.ingredients %>
+            </p>
+          </div>
+
+          <div>
+            <button class="btn bg-warning w-40 btn-m" type="button">
+              Edit
+            </button>
+            <button class="btn bg-danger text-light btn-m" type="button">
+              Delete
+            </button>
+          </div>
         </li>
         <% } ) %>
       </ul>
