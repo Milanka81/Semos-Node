@@ -5,9 +5,6 @@ const userSchema = new mongoose.Schema({
   name: { type: String, required: true, minlength: 3 },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  age: { type: Number, min: 0 },
-  role: { type: String, enum: ["user", "admin"], required: true },
-  refreshToken: { type: String },
 });
 
 userSchema.pre("save", async function (next) {
@@ -17,6 +14,22 @@ userSchema.pre("save", async function (next) {
   }
   next();
 });
+
+// Dodavanje transform funkcije koja uklanja __v polje
+userSchema.set("toJSON", {
+  transform: (doc, ret, options) => {
+    delete ret.__v;
+    return ret;
+  },
+});
+
+userSchema.set("toObject", {
+  transform: (doc, ret, options) => {
+    delete ret.__v;
+    return ret;
+  },
+});
+
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;

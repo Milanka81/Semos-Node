@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const authService = require("../config/authMiddleware");
 const User = require("../models/user");
 
 router.post("/", async (req, res) => {
@@ -13,7 +13,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.get("/", async (req, res) => {
+router.get("/", authService.authenticate, async (req, res) => {
   try {
     const users = await User.find();
     res.send(users);
@@ -49,15 +49,20 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-router.delete("/:id", async (req, res) => {
-  try {
-    const user = await User.findByIdAndDelete(req.params.id);
-    if (!user) {
-      return res.status(404).send();
+router.delete(
+  "/:id",
+  authService.authenticate,
+  authService.authorizedAdmin,
+  async (req, res) => {
+    try {
+      const user = await User.findByIdAndDelete(req.params.id);
+      if (!user) {
+        return res.status(404).send();
+      }
+      res.send(user);
+    } catch (err) {
+      res.status(400).send(err);
     }
-    res.send(user);
-  } catch (err) {
-    res.status(400).send(err);
   }
-});
+);
 module.exports = router;

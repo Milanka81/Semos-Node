@@ -1,9 +1,19 @@
 const express = require("express");
 const router = express.Router();
-const bcrypt = require("bcrypt");
 const User = require("../models/user");
+const bcrypt = require("bcrypt");
 const JWTData = require("../config/JWT_SECRET");
 const jwt = require("jsonwebtoken");
+
+router.post("/register", async (req, res) => {
+  try {
+    const user = new User(req.body);
+    await user.save();
+    res.status(201).send(user);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
 
 router.post("/login", async (req, res) => {
   try {
@@ -23,7 +33,7 @@ router.post("/login", async (req, res) => {
     const token = jwt.sign(
       { userId: user._id, role: user.role },
       JWTData.JWT_SECRET,
-      { expiresIn: "10m" }
+      { expiresIn: "60m" }
     );
 
     const refreshToken = jwt.sign(
