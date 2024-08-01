@@ -3,7 +3,7 @@ const authRoutes = require("./routes/auth");
 const bodyParser = require("body-parser");
 const blogRoutes = require("./routes/blog");
 const authService = require("./middleware/auth");
-
+const db = require("./config/db");
 const app = express();
 const PORT = 80;
 app.use(bodyParser.json());
