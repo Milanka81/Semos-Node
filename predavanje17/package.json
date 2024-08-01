@@ -17,7 +17,9 @@
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.7.0",
     "mongoose": "^8.4.4",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "dotenv": "^16.4.5"
+
   },
   "devDependencies": {
     "nodemon": "^3.1.2"

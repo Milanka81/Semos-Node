@@ -1,14 +1,13 @@
 const mongoose = require("mongoose");
-
-const MONGODB_URI =
-  "mongodb+srv://Milanka:coW21rexULkY7m57@milanka.pfwlgqs.mongodb.net/UsersValidateDatabase?retryWrites=true&w=majority&appName=Milanka";
+const path = require("path");
+require("dotenv").config({ path: path.join(__dirname, "../.env") });
 
 mongoose
-  .connect(MONGODB_URI, {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => console.log("Connected to database"))
-  .catch((err) => console.log("Connection error: ", err));
+  .then(() => console.log("Connected to DB"))
+  .catch((err) => console.log("Failed to connected to DB", err));
 
 module.exports = mongoose;
