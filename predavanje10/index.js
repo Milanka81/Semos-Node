@@ -78,6 +78,6 @@ app.post("/blog/new", async (req, res) => {
   }
 });
 
-app.listen(PORT, "localhost", () => {
+app.listen(PORT, () => {
   console.log(`Server listening for the requests on the port ${PORT}`);
 });
